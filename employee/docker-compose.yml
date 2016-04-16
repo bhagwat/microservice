@@ -1,0 +1,14 @@
+employee:
+ build: .
+ ports:
+  - "8080:8080"
+ links:
+  - mongodb
+mongodb:
+ image: mongo
+ha_employee:
+ image: tutum/haproxy
+ links:
+   - employee
+ ports:
+   - "8080:80"
