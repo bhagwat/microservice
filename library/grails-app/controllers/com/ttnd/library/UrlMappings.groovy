@@ -1,4 +1,4 @@
-package library
+package com.ttnd.library
 
 class UrlMappings {
 

@@ -1,4 +1,4 @@
-package library
+package com.ttnd.library
 
 import com.ttnd.library.Book
 import grails.rest.RestfulController

@@ -1,11 +1,9 @@
-package com.demo.controller;
+package com.ttnd.employee.controller
 
-import com.demo.entity.Employee;
-import com.demo.entity.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.ttnd.employee.entity.Employee
+import com.ttnd.employee.entity.EmployeeRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/employee")

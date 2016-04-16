@@ -4,7 +4,7 @@ class BootStrap {
 
     def init = { servletContext ->
         if (Book.count < 1) {
-            1..10.each { index ->
+            10.times { index ->
                 new Book(name: "Book $index", author: "Author $index").save()
             }
         }

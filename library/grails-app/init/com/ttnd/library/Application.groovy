@@ -1,4 +1,4 @@
-package library
+package com.ttnd.library
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
+import org.springframework.web.client.RestOperations
 import org.springframework.web.client.RestTemplate
 
 @EnableDiscoveryClient
@@ -21,13 +22,13 @@ class Application extends GrailsAutoConfiguration {
 
     @Bean
     @LoadBalanced
-    RestTemplate loadBalanced() {
+    RestOperations loadBalanced() {
         return new RestTemplate();
     }
 
     @Bean
     @Primary
-    RestTemplate restTemplate() {
+    RestOperations restTemplate() {
         return new RestTemplate();
     }
 
