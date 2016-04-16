@@ -36,3 +36,5 @@ classes/
 npm-debug.log
 temp.json
 src/main/resources/public
+docker/*.war
+docker/*.jar

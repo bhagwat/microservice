@@ -1,14 +1,21 @@
-employee:
-  image: bhagwatkumar/employee
+web:
+  image: bhagwatkumar/library
+  ports:
+     - "8080:8080"
   environment:
     JDBC_DATABASE_URL: "jdbc:mysql://mysql/library_prod?useSSL=false&user=root&password=igdefault&autoReconnect=true"
-    SPRING_DATA_MONGODB_URI: mongodb://mongodb/employee
     EUREKA_SERVER: discovery
     EUREKA_PORT: 1111
+    GRAILS_ENV: production
     SERVER_PORT: 8080
   links:
-    - mongodb
+    - mysql
     - discovery
+mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: igdefault
+      MYSQL_DATABASE: library_prod
 discovery:
       image: bhagwatkumar/discovery
       ports:
