@@ -78,9 +78,8 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
+    compile "org.springframework.cloud:spring-cloud-starter-config"
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
-    compile 'org.springframework.cloud:spring-cloud-starter-ribbon'
 }
 
 task wrapper(type: Wrapper) {

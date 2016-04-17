@@ -1,0 +1,22 @@
+info:
+  component: Zuul Server
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: true
+zuul:
+  routes:
+    employee:
+      path: /employee/**
+      service-id: employee-server
+    library:
+      path: /library/**
+      service-id: library-server
+server:
+  port: 8765
+spring:
+  application:
+    name: Zuul Server

@@ -1,9 +1,5 @@
 spring:
   application:
-     name: employees-server
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://${EUREKA_SERVER:localhost}:${EUREKA_PORT:1111}/eureka/
+     name: employee-server
 server:
   port: 2222

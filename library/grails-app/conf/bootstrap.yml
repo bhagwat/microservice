@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVER:localhost:8888}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER:localhost:1111}/eureka/
