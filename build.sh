@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+./gradlew build
 cd discovery
 ./build.sh
 cd ../employee

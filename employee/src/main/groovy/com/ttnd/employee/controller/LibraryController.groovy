@@ -1,5 +1,6 @@
 package com.ttnd.employee.controller
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand
 import com.ttnd.employee.dto.Book
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
@@ -14,14 +15,13 @@ import org.springframework.web.client.RestTemplate
 @RestController
 @RequestMapping("/library")
 public class LibraryController {
-
     @Autowired
     @LoadBalanced
     private RestTemplate loadBalanced;
 
+    @HystrixCommand(fallbackMethod = "defaultBookList")
     @RequestMapping(method = RequestMethod.GET)
     public List<Book> list() {
-        // use the "smart" Eureka-aware RestTemplate
         ResponseEntity<List<Book>> exchange =
                 this.loadBalanced.exchange(
                         "http://library-server/book/index",
@@ -32,5 +32,10 @@ public class LibraryController {
                         (Object) "mstine");
 
         return exchange.getBody();
+    }
+
+    public List<Book> defaultBookList() {
+        println "Library server is now DOWN"
+        return []
     }
 }

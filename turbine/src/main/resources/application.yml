@@ -1,0 +1,8 @@
+spring:
+  application:
+     name: turbine-server
+server:
+  port: 7777
+turbine:
+  appConfig: employee-server,library-server
+  clusterNameExpression: default

@@ -1,1 +1,1 @@
-include 'config', 'discovery', 'zuul', 'employee', 'library'
+include 'config', 'discovery', 'zuul', 'hystrix', 'turbine', 'employee', 'library'

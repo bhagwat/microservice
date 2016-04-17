@@ -1,5 +1,6 @@
 package com.ttnd.employee.controller
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand
 import com.ttnd.employee.entity.Employee
 import com.ttnd.employee.entity.EmployeeRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,8 +23,23 @@ public class EmployeeController {
         return employeeRepository.findOne(employeeId);
     }
 
+    @Autowired
+    Random random
+
+    @HystrixCommand(fallbackMethod = "defaultEmployeeList")
     @RequestMapping(method = RequestMethod.GET)
     public List<Employee> list() {
-        return employeeRepository.findAll();
+        if (random.nextBoolean()) {
+            println "list::: Returning employees"
+            return employeeRepository.findAll();
+        } else {
+            println "list::: Throwing NPE"
+            throw new NullPointerException("Null pointer exception thrown explicitly")
+        }
+    }
+
+    public List<Employee> defaultEmployeeList() {
+        println "defaultList::: Default list is returned"
+        []
     }
 }

@@ -1,0 +1,16 @@
+spring:
+  application:
+     name: hystrixdashboard
+server:
+  port: 7079
+info:
+  component: hystrixdashboar
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+logging:
+  level:
+    ROOT: info
+    org.springframework.web: debug
