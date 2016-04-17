@@ -3,21 +3,17 @@ package com.ttnd.employee
 import com.ttnd.employee.entity.Employee
 import com.ttnd.employee.entity.EmployeeRepository
 import org.springframework.boot.SpringApplication
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.ComponentScan
-import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
 import org.springframework.web.client.RestTemplate
 
-@ComponentScan
-@Configuration
-@EnableAutoConfiguration
+@SpringBootApplication
 @EnableDiscoveryClient
-public class EmployeeBoot {
+public class EmployeeServiceApplication {
     @Bean
     @LoadBalanced
     RestTemplate loadBalanced() {
@@ -31,7 +27,7 @@ public class EmployeeBoot {
     }
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringApplication.run(EmployeeBoot.class)
+        ApplicationContext applicationContext = SpringApplication.run(EmployeeServiceApplication.class)
         bootstrap(applicationContext.getBean(EmployeeRepository));
     }
 

@@ -1,3 +1,32 @@
-allprojects {
-    task hello << { task -> println "I'm $task.project.name" }
+apply plugin: 'java'
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.12'
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+    dependencies {
+        compile "org.codehaus.groovy:groovy-all:2.4.6"
+        compile "org.springframework.boot:spring-boot-starter-actuator"
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+
+    idea {
+        module {
+            downloadSources = false
+        }
+    }
 }

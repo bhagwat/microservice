@@ -1,1 +1,1 @@
-include 'cofig','config-repo', 'discovery', 'zuul', 'employee', 'library'
+include 'config', 'discovery', 'zuul', 'employee', 'library'

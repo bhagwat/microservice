@@ -12,7 +12,7 @@ apply plugin: 'groovy'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'employee'
+    baseName = 'zull'
 }
 
 dependencyManagement {
@@ -27,4 +27,5 @@ dependencies {
 
     compile "org.springframework.cloud:spring-cloud-starter-config"
     compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
+    compile "org.springframework.cloud:spring-cloud-starter-zuul"
 }

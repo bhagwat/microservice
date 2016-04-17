@@ -16,14 +16,12 @@ buildscript {
     }
 }
 
-version "0.1"
+version "1.0.0"
 group "library"
 
-apply plugin: "idea"
 apply plugin: "war"
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.plugins.views-json"
-apply plugin: "io.spring.dependency-management"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -31,11 +29,7 @@ ext {
 }
 
 repositories {
-    jcenter()
-    mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
-    maven { url 'https://repo.spring.io/release/' }
-    maven { url "http://repo.spring.io/milestone" }
 }
 
 dependencyManagement {
@@ -80,13 +74,4 @@ dependencies {
 
     compile "org.springframework.cloud:spring-cloud-starter-config"
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = gradleWrapperVersion
-}
-idea {
-    module {
-        downloadSources = false
-    }
 }
