@@ -68,11 +68,11 @@ curl -XGET http://localhost:8765/employee/employee.json  #Zull server
 curl -XGET http://localhost:2222/employee.json  #Employee server
 ```
 
-![Eureka Dashboard](employee-service.png)
+![Employee Service](employee-service.png)
 
 ```bash
 curl -XGET http://localhost:8765/library/book/list.json   #Zull server
 curl -XGET http://localhost:3333/book/list.json  #Library server
 ```
 
-![Eureka Dashboard](book-service.png)
+![Book Service](book-service.png)
