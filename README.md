@@ -1,6 +1,6 @@
 # Microservice
 
-Contains sub projects required for managing microservices. Gradle multi project build will help you in opening all the projects in IntelliJIdea.
+Contains sub projects required for managing microservices. Gradle multi project build will help you in opening all the projects in IntelliJIdea as well as build.
 
 ## Config Server
 

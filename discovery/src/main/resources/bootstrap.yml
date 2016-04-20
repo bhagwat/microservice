@@ -1,6 +1,9 @@
 spring:
   application:
     name: eureka
-  cloud:
-    config:
-      uri: http://${CONFIG_SERVER:localhost:8888}
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+server:
+  port: 1111
